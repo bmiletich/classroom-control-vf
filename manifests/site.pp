@@ -44,7 +44,8 @@ class fun1 {
     owner => 'root',
     group => 'root',
     mode => '0644',
-    content =>"Good to be learning something.\n"},
+    content => "Good to be learning something.\n",
+    }
 }
 
 
