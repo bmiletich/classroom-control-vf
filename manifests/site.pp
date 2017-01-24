@@ -42,11 +42,4 @@ ini_setting { 'random ordering':
 
 node default {
   include role::classroom
-file {'/etc/motd':
-  ensure =>file,
-  owner =>'root',
-  group =>'root',
-  mode =>'0644'
-  content =>"Good to be learning something."
-}
 }
