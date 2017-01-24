@@ -41,13 +41,15 @@ ini_setting { 'random ordering':
 node default {
   include role::classroom
   
-  file { '/etc/motd':
-  ensure  => file,
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => "Hey, Puppet is fun! from gitHub\n",
-   }
+#  file { '/etc/motd':
+#  ensure  => file,
+#  owner   => 'root',
+#  group   => 'root',
+#  mode    => '0644',
+#  content => "Hey, Puppet is fun! from gitHub\n",
+#   }
 
-
+exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+  path    => '/usr/local/bin',
+  creates => '/etc/motd',
 }
