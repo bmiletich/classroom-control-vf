@@ -43,8 +43,8 @@ class fun1 {
     ensure => file,
     owner => 'root',
     group => 'root',
-    mode => '0644'
-    content =>"Good to be learning something."}
+    mode => '0644',
+    content =>"Good to be learning something.\n"},
 }
 
 
