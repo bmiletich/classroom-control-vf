@@ -47,7 +47,7 @@ node default {
   group   => 'root',
   mode    => '0644',
   content => "Hey, Puppet is fun! from gitHub\n",
-}
+   }
 
 
 }
