@@ -38,7 +38,20 @@ ini_setting { 'random ordering':
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 
-class fun1 {
+#class fun1 {
+#  file {'/etc/motd':
+#    ensure => file,
+#    owner => 'root',
+#    group => 'root',
+#    mode => '0644',
+#    content => "Good to be learning something.\n",
+#    }
+#}
+
+
+node default {
+  include role::classroom
+#  include fun1
   file {'/etc/motd':
     ensure => file,
     owner => 'root',
@@ -46,11 +59,4 @@ class fun1 {
     mode => '0644',
     content => "Good to be learning something.\n",
     }
-}
-
-
-node default {
-  include role::classroom
-  include fun1
-
 }
