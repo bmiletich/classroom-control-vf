@@ -41,6 +41,7 @@ ini_setting { 'random ordering':
 node default {
   #include role::classroom
   include users
+  include skeleton
   
   notify { "Hello! HEIDY HO!": }
   notify { 'title':
