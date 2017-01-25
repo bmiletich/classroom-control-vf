@@ -55,17 +55,17 @@ node default {
   # End Exercise 7.1
   
   # Exercise 7.2
-  exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
-    path    => '/bin:/usr/bin:/usr/local/bin',
-    creates => '/etc/motd',
-  }
+  #exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
+  #  path    => '/bin:/usr/bin:/usr/local/bin',
+  #  creates => '/etc/motd',
+  #}
   # End Exercise 7.2
   
   # Exercise 7.3
-  # host { 'josephoaks.puppetlabs.vm':
-  #   ensure => present,
-  #   ip     => '127.0.0.1',
-  # }
+   host { 'josephoaks.puppetlabs.vm':
+     ensure => present,
+     ip     => '127.0.0.1',
+   }
   # End Exercise 7.3
   
 }
