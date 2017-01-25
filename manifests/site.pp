@@ -39,9 +39,8 @@ ini_setting { 'random ordering':
 # specified in the console for that node.
 
 node default {
-  include role::classroom
-  
-  notify { "Hello! HEIDY HO! }
+  #include role::classroom
+  notify { "Hello! HEIDY HO!" }
   
   file { '/etc/motd':
     ensure => file,
