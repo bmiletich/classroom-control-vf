@@ -52,7 +52,7 @@ ini_setting { 'random ordering':
 
 node default {
   
-  notify 
+  #notify 
   include role::classroom
   exec{ "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
   path    => '/usr/local/bin',
