@@ -9,7 +9,7 @@ class nginx {
     source => 'puppet:///modules/nginx/nginx.conf',
     owner => 'root',
     group => 'root',
-    notify => Service['nginx.conf'],
+    notify => Service['nginx'],
   }
   
   file { '/var/www':
