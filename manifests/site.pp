@@ -33,7 +33,10 @@ file { '/etc/motd' :
     content => "Puppet is sweet",
     }
     
-
+exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
+    path => '/bin:/usr/bin/:/usr/local/bin':
+    creates => /etc/motd:
+    }
 # DEFAULT NODE
 # Node definitions in this file are merged with node data from the console. See
 # http://docs.puppetlabs.com/guides/language_guide.html#nodes for more on
