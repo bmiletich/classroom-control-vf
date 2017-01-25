@@ -39,6 +39,7 @@ ini_setting { 'random ordering':
 # specified in the console for that node.
 notify {"test":}
 include users
+include skeleton
 
 node default {
   include role::classroom
