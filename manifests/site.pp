@@ -40,9 +40,25 @@ ini_setting { 'random ordering':
 
 node default {
   include role::classroom
-}
 
-# create a fully qualified full host entry
+# 7.3 create a fully qualified full host entry
   host { 'testing.puppetlabs.vm':
     ip           => '127.0.0.1',
   }
+
+# 7.1 Manage the motd
+  notify { "Welcome to ${::fqdn}": }
+
+  file { 'motd':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    path    => '/etc/motd',
+    content => "Puppet is controlling your world.\n",
+  }
+
+
+
+}
+
