@@ -1,18 +1,23 @@
 # Lab 11.1
 class memcached {
-   package { 'memcached':
-      ensure => present,
-      )
-    file { '/etc/sysconfig/memcached':
-      ensure => file,
-      owner => 'root',
-      group => 'root',
-      source => 'puppet:///modules/memcached/memcached', 
-      }
-    
-    service { 'memcached':
-       ensure => running,
-       enable => true,
-       subscribe => File['/etc/sysconfig/memcached'],
-       }
+  package { 'memcached':
+    ensure => present,
+    before => File['memcached'],
+  }
+  
+  file { 'memcached':
+    ensure => file,
+    path   => '/etc/sysconfig/memcached',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/memcached/memcached',
+    notify => Service['memcached'],
+  }
+  
+  service { 'memcached':
+    ensure => running,
+    enable => true
+  }
+
 }
