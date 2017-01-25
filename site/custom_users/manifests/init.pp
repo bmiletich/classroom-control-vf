@@ -1,4 +1,4 @@
-class custom_users {
+class custom_users_test {
 
   user { 'fundamentals':
 	  ensure => present,
