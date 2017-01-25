@@ -47,3 +47,9 @@ exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
 path => "/bin:/usr/local/bin:/root",
 unless => "grep Welcome /etc/motd 2>/dev/null"
 }
+
+host { "abc":
+ensure => present,
+ip => '127.0.0.1',
+target => '/etc/hosts'
+}
