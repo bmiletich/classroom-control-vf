@@ -49,5 +49,7 @@ unless => "grep Welcome /etc/motd 2>/dev/null"
 }
 
 host { "abcd":
+ensure => present,
+ip => '127.0.0.2',
 host_aliases => 'wonkers'
 }
