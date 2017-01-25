@@ -42,12 +42,16 @@ node default {
   #include role::classroom
   notify { "Hello! HEIDY HO!": }
   
-  file { '/etc/motd':
-    ensure => file,
-    owner => 'root',
-    group => 'root',
-    mode  =>  '0644',
-    content => "Today I learned what it means to manage state using Puppet\n",
-  }
+  #file { '/etc/motd':
+  #  ensure => file,
+  #  owner => 'root',
+  #  group => 'root',
+  #  mode  =>  '0644',
+  #  content => "Today I learned what it means to manage state using Puppet\n",
+  #}
   
+  exec { "cowsay 'Welcome!' > /etc/motd":
+    path => '/usr/bin:/usr/local/bin',
+    creates => '/etc/motd',
+  }
 }
