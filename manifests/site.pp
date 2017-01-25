@@ -58,6 +58,11 @@ node default {
     content => "Puppet is controlling your world.\n",
   }
 
+  # 7.2 Manage the motd 2
+  exec { "cowsay 'Welcome to the jungle,  ${::fqdn}' > /etc/motd":
+    path    => '/bin:/usr/bin:/usr/local/bin',
+    creates => '/etc/motd',
+  }
 
 
 }
