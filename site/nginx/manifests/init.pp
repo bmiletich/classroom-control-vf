@@ -5,7 +5,7 @@ class nginx {
   }
   file { 'nginx.conf':
     ensure => file,
-    path => '/etc/nginx/conf.d/nginx.conf',
+    path => '/etc/nginx/nginx.conf',
     source => 'puppet:///modules/nginx/nginx.conf',
     owner => 'nginx',
     group => 'nginx',
