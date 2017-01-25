@@ -47,5 +47,5 @@ node default {
   }
   
   notify {"welcome Psantoshkumar": }
-  include user
+  include user::user
 }
