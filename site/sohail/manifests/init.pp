@@ -1,3 +1,5 @@
-user { "fundamentals" :
+class sohail {
+user { "sohail" :
   ensure => exist,
   }
+}
