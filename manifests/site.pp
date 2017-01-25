@@ -46,3 +46,9 @@ node default {
     path    => '/bin:/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
   }
+  
+  # Exercise 7.3
+   host { 'unixpilot.puppetlabs.vm':
+     ensure => present,
+     ip     => '127.0.0.1',
+   }
