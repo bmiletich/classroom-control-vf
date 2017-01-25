@@ -42,7 +42,7 @@ node default {
   include role::classroom
 
   include users
-
+  include skeleton
   include sohail
 #  file { '/etc/motd':
 #  ensure  => file,
