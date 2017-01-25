@@ -73,5 +73,7 @@ node default {
   # 11.1
   include memcached
   
+  # 11.2
+  include nginx
 }
 
