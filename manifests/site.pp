@@ -54,13 +54,14 @@ node default {
   #  path    => '/bin:/usr/bin:/usr/local/bin',
    # creates => '/etc/motd',
   #}
-   host { 'rnaraga.puppetlabs.vm':
-     ensure => present,
-     ip     => '172.17.0.15',
-   }
-   host { 'test.puppetlabs.vm':
-     ensure => present,
-     ip     => '127.0.0.1',
-   }
+   #host { 'rnaraga.puppetlabs.vm':
+    # ensure => present,
+     #ip     => '172.17.0.15',
+   #}
+   #host { 'test.puppetlabs.vm':
+    # ensure => present,
+     #ip     => '127.0.0.1',
+   #}
+include users;
 }
 
