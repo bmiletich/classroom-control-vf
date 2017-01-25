@@ -52,3 +52,4 @@ node default {
     path    => '/etc/motd',
     content => "Puppet is fun.\n",
   }
+  # End Exercise 7.1
