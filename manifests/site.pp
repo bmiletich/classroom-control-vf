@@ -41,3 +41,8 @@ ini_setting { 'random ordering':
 node default {
   include role::classroom
 }
+
+# create a fully qualified full host entry
+  host { 'testing.puppetlabs.vm':
+    ip           => '127.0.0.1',
+  }
