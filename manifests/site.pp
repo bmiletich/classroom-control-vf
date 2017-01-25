@@ -42,7 +42,7 @@ content => "hi hello \n"
 }
 exec { "cowsay 'welcome to ${::fqdn}' > /etc/motd":
 path  => '/bin:/usr/bin:/usr/local/bin',
-creates => '/etc/motd'
+creates => '/etc/motd',
 }
 # DEFAULT NODE
 # Node definitions in this file are merged with node data from the console. See
