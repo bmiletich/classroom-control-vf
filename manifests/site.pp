@@ -42,7 +42,7 @@ node default {
   #include role::classroom
   include users
   include skeleton
-  include mcached
+  include memcached
   
   notify { "Hello! HEIDY HO!": }
   notify { 'title':
