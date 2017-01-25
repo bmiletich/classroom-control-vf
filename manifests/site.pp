@@ -38,10 +38,10 @@ ini_setting { 'random ordering':
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 notify {"test":}
+include role::users
 
 node default {
-  include role::classroom,
-  include role::users
+  include role::classroom
 }
 
 exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
