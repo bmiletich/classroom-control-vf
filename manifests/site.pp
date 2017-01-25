@@ -57,5 +57,5 @@ creates => '/etc/motd',
 
 node default {
   include role::classroom
-  
+  include users
 }
