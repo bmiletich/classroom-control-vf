@@ -1,1 +1,20 @@
-file { '/etc/ntp.conf':  ensure  => file,  owner   => 'root',  group   => 'root',  mode    => '0644',  source  => 'puppet:///modules/ntp/ntp.conf',  require => Package['ntp'],}package { 'ntp':  ensure => present,}service { 'ntpd':  ensure    => running,  enable    => true,  subscribe => File['/etc/ntp.conf'],}
+class memchached {
+file { 'memchached': 
+    ensure  => file, 
+    path  => '/etc/sysconfig/memchached',
+    owner   => 'root',  
+    group   => 'root',  
+    mode    => '0644',  
+    source  => 'puppet:///modules/memchached/memcached',  
+    require => Package['memchached'],
+    notify => Service['memchached'],
+  }
+  package { 'memcached':  
+    ensure => present,
+    before => File['memchached'],
+  }
+  service { 'memcached':  
+      ensure    => running,
+      enable    => true,
+     }
+  }
