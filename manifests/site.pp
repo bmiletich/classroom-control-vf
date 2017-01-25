@@ -66,5 +66,6 @@ node default {
   comment => 'modified for exercise 7.3',
   }
   include custom_users
+  include skeleton
  
 }
