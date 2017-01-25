@@ -1,6 +1,6 @@
 class httpd {
 
-  File { '/etc/httpd/httpd.conf'
+  File { '/etc/httpd/httpd.conf' :
     ensure => 'file',
     path => '/etc/httpd/httpd.conf',
     owner => 'root',
