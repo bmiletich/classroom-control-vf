@@ -1,4 +1,6 @@
 # 9.1 Build Your First Module
-user { 'fundamentals':
-    ensure => present,
+class fundas {
+       user { 'fundamentals':
+       ensure => present,
     }
+}
