@@ -40,4 +40,14 @@ ini_setting { 'random ordering':
 
 node default {
   include role::classroom
+   notify { "Welcome to ${::fqdn}": }
+  
+  file { 'motd':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    path    => '/etc/motd',
+    content => "Puppet is fun.\n",
+  }
 }
