@@ -1,3 +1,3 @@
-class user { 'fundamental':
+class user { 'fundamental' :
   ensure => 'present',
   }
