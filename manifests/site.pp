@@ -44,21 +44,21 @@ node default {
   # Exercise 7.1
   notify { "Welcome to ${::fqdn}": }
   
-  file { 'motd':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    path    => '/etc/motd',
-    content => "Puppet is fun.\n",
-  }
+  #file { 'motd':
+  #  ensure  => file,
+  #  owner   => 'root',
+  #  group   => 'root',
+  #  mode    => '0644',
+  #  path    => '/etc/motd',
+  #  content => "Puppet is fun.\n",
+  #}
   # End Exercise 7.1
   
   # Exercise 7.2
-  #exec { "cowsay 'Welcome to ${::fqdn}":
-  #  path    => '/bin:/usr/bin:/usr/local/bin',
-  #  creates => '/etc/motd',
-  #}
+  exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
+    path    => '/bin:/usr/bin:/usr/local/bin',
+    creates => '/etc/motd',
+  }
   # End Exercise 7.2
   
   # Exercise 7.3
