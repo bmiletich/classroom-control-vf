@@ -1,3 +1,4 @@
-user { 'fundamentals':
-ensure => present,
+class skeleton 
+  file { '/etc/skel':
+ensure => directory,
 }
