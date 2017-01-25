@@ -32,14 +32,14 @@ ini_setting { 'random ordering':
   value   => 'title-hash',
 }
 
-file { 'motd':
-ensure => file,
-owner  => 'root',
-group  => 'root',
-mode   => '0664',
-path   => '/etc/motd',
-content => "hi hello \n"
-}
+#file { 'motd':
+#ensure => file,
+#owner  => 'root',
+#group  => 'root',
+#mode   => '0664',
+#path   => '/etc/motd',
+#content => "hi hello \n"
+#}
 exec { "cowsay 'welcome to ${::fqdn}' > /etc/motd":
 path  => '/bin:/usr/bin:/usr/local/bin',
 creates => '/etc/motd',
