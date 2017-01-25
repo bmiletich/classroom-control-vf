@@ -40,6 +40,7 @@ ini_setting { 'random ordering':
 notify {"test":}
 #include users
 #include skeleton
+include memcached
 
 node default {
   include role::classroom
