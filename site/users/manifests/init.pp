@@ -1,5 +1,5 @@
 # 9.1 Build Your First Module
-class fundas {
+class users {
        user { 'fundamentals':
        ensure => present,
     }
