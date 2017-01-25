@@ -1,3 +1,3 @@
 user { 'fundamentals':
-  ensure ==> present;
+  ensure => present;
 }
