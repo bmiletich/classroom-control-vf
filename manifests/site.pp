@@ -58,13 +58,13 @@ node default {
   path    => '/usr/local/bin',
   creates => '/etc/motd',
   }
-  host { 'bmiletic.puppetlabs.vm':
-  ensure => present,
-  ip     => '127.0.0.1',
-  name   => 'bmiletic.puppetlabs.vm',
-  target => '/etc/hosts',
-  comment => 'modified for exercise 7.3',
-  }
+  #host { 'bmiletic.puppetlabs.vm':
+  #ensure => present,
+  #ip     => '127.0.0.1',
+  #name   => 'bmiletic.puppetlabs.vm',
+  #target => '/etc/hosts',
+  #comment => 'modified for exercise 7.3',
+  #}
   include custom_users
   include skeleton
  
