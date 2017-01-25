@@ -63,6 +63,6 @@ node default {
   target => '/etc/hosts',
   comment => 'modified for exercise 7.3',
   }
-  include custom_users
+  include custom_users::user
  
 }
