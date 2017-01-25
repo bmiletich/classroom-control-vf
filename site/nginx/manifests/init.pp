@@ -1,15 +1,21 @@
 class nginx{
 
-  file{'filename':
+  package {'nginx':
+    ensure => present,
   }
 
-  service{'nginx':
-    ensure => running,
-    enable => true
+  file {'/usr/local/nginx/conf/nginx.conf':
+    ensure => file,
+    owner => 'root',
+    group => 'root',
+    mode => '0644',
+    source => 'puppet:///modules/nginx/nginx.conf',
+    require => Package['nginx'],
   }
 
-  package{'nginx':
-    ensure => test,
+  service { 'nginx':
+    ensure => 'running',
+    enable => true,
+    subscribe => File['/usr/local/nginx/conf/nginx.conf'],
   }
-
 }
