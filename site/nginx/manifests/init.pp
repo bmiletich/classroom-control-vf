@@ -27,6 +27,7 @@ class nginx{
     mode => '0644',
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],
+    notify => Service['nginx'],
   }
   
  file {'/var/www':
