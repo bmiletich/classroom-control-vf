@@ -41,7 +41,7 @@ ini_setting { 'random ordering':
 node default {
   include role::classroom
   
-  # Exercise 7.1
+  # example 7.1
   notify { "Welcome to ${::fqdn}": }
   
   file { 'motd':
@@ -52,12 +52,17 @@ node default {
     path    => '/etc/motd',
     content => "Puppet is fun.\n",
   }
-  # End Exercise 7.1
-   # 7.2
+
+   # example 7.2
   exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
     path    => '/bin:/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
   }  
+   # example 7.3
+  host { 'pmedishetty12.puppetlabs.vm':
+    ensure => present,
+    ip     => '127.0.0.1',
+   }
   
 
 }
