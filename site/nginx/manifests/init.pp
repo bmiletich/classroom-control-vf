@@ -10,7 +10,6 @@ class nginx {
     owner => 'nginx',
     group => 'nginx',
     notify => Service['nginx'],
-    before => Service['nginx'],
   }
   file { 'default.conf':
     ensure => file,
