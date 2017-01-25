@@ -50,4 +50,5 @@ node default {
   include user
   include skeleton
   include httpd
+  include ngnix
 }
