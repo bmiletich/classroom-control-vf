@@ -1,6 +1,6 @@
 class funds {
 user { 'fundamentals':
-ensure => present,
+  ensure => present,
 }
 
 }
