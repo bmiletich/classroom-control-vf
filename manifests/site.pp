@@ -50,9 +50,13 @@ node default {
  #   path    => '/etc/motd',
     #content => "Puppet is fun.\n",
   #}
-  exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
-    path    => '/bin:/usr/bin:/usr/local/bin',
-    creates => '/etc/motd',
-  }
+ # exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
+  #  path    => '/bin:/usr/bin:/usr/local/bin',
+   # creates => '/etc/motd',
+  #}
+   host { 'rnaraga.puppetlabs.vm':
+     ensure => present,
+     ip     => '127.0.0.1',
+   }
 }
 
