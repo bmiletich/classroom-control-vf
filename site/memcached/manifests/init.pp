@@ -7,6 +7,7 @@ class memcahced {
       ensure => file,
       owner => 'root',
       group => 'root',
+      source => 'puppet:///modules/memcached/memcached', 
       }
     
     service { 'memcached':
