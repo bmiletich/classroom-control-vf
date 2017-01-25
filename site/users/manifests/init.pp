@@ -1,4 +1,4 @@
-class funds {
+class users {
 
 user { 'fundamentals':
   ensur => present,
