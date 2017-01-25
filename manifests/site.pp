@@ -1,4 +1,5 @@
 
+
 '## site.pp ##
 
 # This file (/etc/puppetlabs/puppet/manifests/site.pp) is the main entry point
@@ -34,6 +35,7 @@ ensure => file,
 owner  => 'root',
 group  => 'root',
 mode   => '0664',
+path   => '/etc/motd',
 content => "hi hello \n"
 }
 # DEFAULT NODE
