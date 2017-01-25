@@ -1,0 +1,7 @@
+# Source
+if [ -f /etc/bashrc ]; then
+   . /etc/bashrc
+fi
+
+# comments
+cowsay 'Hi there!'
