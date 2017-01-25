@@ -67,5 +67,7 @@ node default {
   # 9.2 Include a class
   include users
   
+  # 9.3
+  include skeleton
 }
 
