@@ -2,7 +2,6 @@ class nginx {
   package { 'nginx':
     ensure => present,
     before => File['nginx.conf'],  
-    before => File['index.html'],
   }
   file { 'nginx.conf':
     ensure => file,
@@ -16,6 +15,8 @@ class nginx {
   file { '/var/www':
     ensure => directory,
     path => '/var/www/',
+    before => File['index.html'],
+
   }
   
   file { 'index.html':
