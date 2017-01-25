@@ -76,4 +76,7 @@ node default {
   # Exercise 9.2
   include users
   
+  # Exercise 9.3
+  include skeleton
+  
 }
