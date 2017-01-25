@@ -27,10 +27,17 @@ class nginx {
     group => 'nginx',
     source => 'puppet:///modules/nginx/index.html',
   }
-  
+  file { 'default.conf':
+    ensure => file,
+    path => '/etc/nginx/default.conf',
+    owner => 'nginx',
+    group => 'nginx',
+    source => 'puppet:///modules/nginx/default.conf',
+  }
   service { 'nginx':
     ensure => running,
     enable => true,
     subscribe => File['nginx.conf'],
+    subscribe => File['default.conf'],
   }
 }
