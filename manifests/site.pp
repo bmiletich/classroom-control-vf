@@ -1,4 +1,5 @@
-## site.pp ##
+
+'## site.pp ##
 
 # This file (/etc/puppetlabs/puppet/manifests/site.pp) is the main entry point
 # used when an agent connects to a master and asks for an updated configuration.
@@ -28,6 +29,13 @@ ini_setting { 'random ordering':
   value   => 'title-hash',
 }
 
+file { '/etc/motd':
+ensure => file,
+owner  => 'root',
+group  => 'root',
+mode   => '0664',
+content => "hi hello \n"
+}
 # DEFAULT NODE
 # Node definitions in this file are merged with node data from the console. See
 # http://docs.puppetlabs.com/guides/language_guide.html#nodes for more on
