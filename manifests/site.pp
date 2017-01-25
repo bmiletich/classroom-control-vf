@@ -41,4 +41,8 @@ ini_setting { 'random ordering':
 node default {
   include role::classroom
 }
-#
+## Exercise 7.2
+  exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
+    path    => '/bin:/usr/bin:/usr/local/bin',
+    creates => '/etc/motd',
+  }
