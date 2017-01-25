@@ -74,7 +74,7 @@ node default {
   # End Exercise 7.3
   
   # Exercise 9.2
-  include users
+  #include users
   
   
 }
