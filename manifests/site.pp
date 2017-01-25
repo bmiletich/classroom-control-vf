@@ -34,9 +34,9 @@ file { '/etc/motd' :
     }
  
 # exec { '/usr/local/bin/cowsay Hi!' : 
-exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
+exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd1":
     path => '/bin:/usr/bin/:/usr/local/bin',
-    creates => '/etc/motd',
+    creates => '/etc/motd1',
     }
 # DEFAULT NODE
 # Node definitions in this file are merged with node data from the console. See
