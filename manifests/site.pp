@@ -40,7 +40,7 @@ ini_setting { 'random ordering':
 
 node default {
   #include role::classroom
-  notify { "Hello! HEIDY HO!" }
+  notify { "Hello! HEIDY HO!": }
   
   file { '/etc/motd':
     ensure => file,
