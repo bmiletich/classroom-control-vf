@@ -60,4 +60,12 @@ node default {
   #  creates => '/etc/motd',
   #}
   # End Exercise 7.2
+  
+  # Exercise 7.3
+  # host { 'josephoaks.puppetlabs.vm':
+  #   ensure => present,
+  #   ip     => '127.0.0.1',
+  # }
+  # End Exercise 7.3
+  
 }
