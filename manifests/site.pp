@@ -62,15 +62,19 @@ node default {
   # End Exercise 7.2
   
   # Exercise 7.3
-   host { 'josephoaks.puppetlabs.vm':
-     ensure => present,
-     ip     => '172.17.0.2',
-   }
+  #host { 'josephoaks.puppetlabs.vm':
+  #  ensure => present,
+  #  ip     => '172.17.0.2',
+  #}
    
-   host { 'puppetpirate.puppetlabs.vm':
-     ensure => present,
-     ip     => '127.0.0.1',
-   }
+  #host { 'puppetpirate.puppetlabs.vm':
+  #  ensure => present,
+  #  ip     => '127.0.0.1',
+  #}
   # End Exercise 7.3
+  
+  # Exercise 9.2
+  include users
+  
   
 }
