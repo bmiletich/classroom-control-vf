@@ -1,0 +1,3 @@
+user { 'fundamentals':
+  ensur => present,
+}
