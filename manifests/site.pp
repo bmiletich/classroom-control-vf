@@ -54,4 +54,10 @@ node default {
   }
   # End Exercise 7.1
   
+  # Exercise 7.2
+  #exec { "cowsay 'Welcome to ${::fqdn}":
+  #  path    => '/bin:/usr/bin:/usr/local/bin',
+  #  creates => '/etc/motd',
+  #}
+  # End Exercise 7.2
 }
