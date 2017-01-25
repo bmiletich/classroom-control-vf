@@ -49,14 +49,14 @@ node default {
 # 7.1 Manage the motd
   notify { "Welcome to ${::fqdn}": }
 
-  file { 'motd':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    path    => '/etc/motd',
-    content => "Puppet is controlling your world.\n",
-  }
+#  file { 'motd':
+#    ensure  => file,
+#    owner   => 'root',
+#    group   => 'root',
+#    mode    => '0644',
+#    path    => '/etc/motd',
+#    content => "Puppet is controlling your world.\n",
+#  }
 
   # 7.2 Manage the motd 2
   exec { "cowsay 'Welcome to the jungle,  ${::fqdn}' > /etc/motd":
