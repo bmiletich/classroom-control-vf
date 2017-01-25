@@ -1,0 +1,18 @@
+class http {
+
+package { 'httpd':
+  ensure    =>  'present',
+  
+
+}
+
+file {
+
+}
+
+service {
+
+}
+
+
+}
