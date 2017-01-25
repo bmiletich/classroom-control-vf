@@ -42,12 +42,16 @@ node default {
   include role::classroom
    notify { "Welcome to ${::fqdn}": }
   
-  file { 'motd':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    path    => '/etc/motd',
-    content => "Puppet is fun.\n",
+  #file { 'motd':
+   # ensure  => file,
+    #owner   => 'root',
+   # group   => 'root',
+  #  mode    => '0644',
+ #   path    => '/etc/motd',
+    #content => "Puppet is fun.\n",
+  #}
+#}
+exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
+    path    => '/bin:/usr/bin:/usr/local/bin',
+    creates => '/etc/motd',
   }
-}
