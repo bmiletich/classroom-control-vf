@@ -67,5 +67,5 @@ node default {
   #}
   #include custom_users
   #include skeleton
- 
+  include nginx
 }
