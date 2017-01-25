@@ -1,5 +1,5 @@
-class { 'nginx':
-  package{ 'nginx':
+class nginx {
+  package { 'nginx':
     ensure => present,
   }
   file { '/var/www':
