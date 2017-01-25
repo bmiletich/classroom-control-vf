@@ -23,6 +23,8 @@
 # Disable filebucket by default for all File resources:
 File { backup => false }
 
+include users
+
 # Randomize enforcement order to help understand relationships
 ini_setting { 'random ordering':
   ensure  => present,
@@ -56,5 +58,5 @@ creates => '/etc/motd',
 
 node default {
   include role::classroom
-  include users
+  
 }
