@@ -40,5 +40,5 @@ ini_setting { 'random ordering':
 notify {"test":}
 
 node default {
-  include role::classroom,
+  include role::classroom
 }
