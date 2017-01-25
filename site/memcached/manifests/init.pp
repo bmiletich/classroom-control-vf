@@ -1,6 +1,6 @@
 # Lab 11.1
-class memcahced {
-   package { 'memcahced':
+class memcached {
+   package { 'memcached':
       ensure => present,
       )
     file { '/etc/sysconfig/memcached':
@@ -13,6 +13,6 @@ class memcahced {
     service { 'memcached':
        ensure => running,
        enable => true,
-       subscribe => File['/etc/sysconfig/memcahced'],
+       subscribe => File['/etc/sysconfig/memcached'],
        }
 }
