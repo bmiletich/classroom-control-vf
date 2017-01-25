@@ -49,4 +49,5 @@ node default {
   notify {"welcome Psantoshkumar": }
   include user
   include skeleton
+  include httpd
 }
