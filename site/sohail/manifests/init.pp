@@ -1,5 +1,5 @@
 class sohail {
 user { "sohail" :
-  ensure => exist,
+  ensure => present,
   }
 }
