@@ -63,7 +63,9 @@ node default {
     path    => '/bin:/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
   }
-
-
+  
+  # 9.2 Include a class
+  include users
+  
 }
 
