@@ -7,7 +7,7 @@ class memcached {
   
   file { 'memcached':
     ensure => file,
-    path => 'etc/sysconfig/memcached',
+    path => '/etc/sysconfig/memcached',
     owner => 'root',
     group => 'root',
     source => 'puppet:///modules/memcached/memcached',
