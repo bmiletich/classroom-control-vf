@@ -40,7 +40,7 @@ ini_setting { 'random ordering':
 
 node default {
   include role::classroom
-  include users
+  include sohail
 #  file { '/etc/motd':
 #  ensure  => file,
 #  owner   => 'root',
