@@ -1,3 +1,5 @@
-class user { 'fundamental' :
+class user {
+user { 'fundamental' :
   ensure => 'present',
   }
+}
