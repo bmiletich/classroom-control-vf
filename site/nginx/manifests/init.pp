@@ -1,33 +1,46 @@
 class { 'nginx':
   package { 'nginx':
+    ensure => present,
   }
-  file { 'documentroot':
-    package => 'nginx',
-    docroot => '/var/www',
-    configfile => '/etc/nginx/nginx.conf',
-    serverblock => '/etc/nginx/conf.d/default.conf'
-  }
-  file { 'index.html':
-  }
-  file { 'configurenginx':
-  }
-  service { 'nginx':
-  }
-}
-
-
-
-  file{ '/etc/skel':
-    ensure => directory,
+  file { '/var/www':
+    ensure => 'directory',
     owner => 'root',
     group => 'root',
-    mode => '0755',
+    mode => '755',
   }
-  
-  file{ '/etc/skel/.bashrc':
+  file { '/var/www/index.html':
+    ensure => 'file',
+    owner => 'root',
+    group => 'root',
+    mode => '0664',
+    source => 'puppet:///modules/nginx/index.html',
+  }
+  file { '/etc/nginx/nginx.conf':
     ensure => file,
     owner => 'root',
     group => 'root',
-    mode => '0755',
-    source  => 'puppet:///modules/skeleton/bashrc',
+    mode => '0664',
+    source => 'puppet:///modules/nginx/nginx.conf',
+    require => Package['nginx'],
+    notify => Service['nginx'],
   }
+  file { '/etc/nginx/conf.d':
+    ensure => directory,
+    owner => 'root',
+    group => 'root',
+    mode => '0775',
+  }
+  file { '/etc/nginx/conf.d/default.conf':
+    ensure => file,
+    owner => 'root',
+    group => 'root',
+    mode => '0664',
+    source => 'puppet:///modules/nginx/default.conf',
+    require => Package['nginx'],
+    notify => Service['nginx'],
+  }
+  service { 'nginx':
+    ensure => running,
+    enable => true,
+  }
+}
