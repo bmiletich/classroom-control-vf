@@ -44,5 +44,6 @@ node default {
 }
 
 exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+path => "/root",
 unless => "grep cowsay /etc/motd 2>/dev/null"
 }
