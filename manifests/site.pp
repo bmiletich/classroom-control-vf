@@ -38,8 +38,8 @@ ini_setting { 'random ordering':
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 notify {"test":}
-include users
-include skeleton
+#include users
+#include skeleton
 
 node default {
   include role::classroom
