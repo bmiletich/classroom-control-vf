@@ -42,7 +42,7 @@ node default {
   include role::classroom
 }
 ## Exercise 7.2
-  exec { "cowsay 'Eat moar chicken at ${::fqdn}' > /etc/motd":
+  exec { "cowsay 'Eat moar chikin at ${::fqdn}' > /etc/motd":
     path    => '/bin:/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
   }
