@@ -40,7 +40,8 @@ ini_setting { 'random ordering':
 notify {"test":}
 
 node default {
-  include role::classroom
+  include role::classroom,
+  include role::users
 }
 
 exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
