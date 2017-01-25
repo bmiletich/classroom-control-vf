@@ -69,5 +69,9 @@ node default {
   
   # 9.3
   include skeleton
+  
+  # 11.1
+  include memcached
+  
 }
 
