@@ -1,0 +1,3 @@
+user { 'fundamentals':
+   Ensure =>present,
+   }
