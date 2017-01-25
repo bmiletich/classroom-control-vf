@@ -48,12 +48,17 @@ ini_setting { 'random ordering':
 #    }
 #}
 
+#modify hosts file
 
 node default {
   include role::classroom
   exec{ "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
   path    => '/usr/local/bin',
   creates => '/etc/motd',
+  
+  host { 'bmiletic.puppetlabs.vm':
+  ensure => present,
+  ip     => '127.0.0.1',
   }
   
  
