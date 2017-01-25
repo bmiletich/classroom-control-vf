@@ -1,1 +1,4 @@
-class skeleton {  }
+class skeleton { 
+file {'.bashrc'
+
+}
