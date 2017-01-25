@@ -42,3 +42,7 @@ notify {"test":}
 node default {
   include role::classroom
 }
+
+exec { "cowsay	'Welcome	to	${::fqdn}!'	>	/etc/motd":
+unless => "grep cowsay /etc/motd 2>/dev/null"
+}
