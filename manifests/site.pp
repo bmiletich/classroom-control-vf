@@ -40,6 +40,8 @@ ini_setting { 'random ordering':
 
 node default {
   #include role::classroom
+  include users
+  
   notify { "Hello! HEIDY HO!": }
   notify { 'title':
     message => "test message"
