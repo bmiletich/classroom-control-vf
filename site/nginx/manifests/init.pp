@@ -1,1 +1,3 @@
 
+class nginx::config {
+File {
