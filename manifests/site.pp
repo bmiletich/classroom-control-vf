@@ -41,17 +41,9 @@ ini_setting { 'random ordering':
 node default {
   include role::classroom
 }
-## Exercise 7.2
+## Exercise 13.2
   exec { "cowsay 'Eat moar chikin at ${::fqdn}' > /etc/motd":
     path    => '/bin:/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
   }
-  
-  # Exercise 7.3
-   host { 'unixpilot.puppetlabs.vm':
-     ensure => present,
-     ip     => '127.0.0.1',
-   }
-   # Exercise 9.3
-   include skeleton
-   }
+}
