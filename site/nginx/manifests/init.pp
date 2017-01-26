@@ -1,24 +1,14 @@
-class nginx {
+class nginx (
+  $docroot  = $nginx::params::docroot,
+  $confdir  = $nginx::params::confdir,
+  $blockdir = $nginx::params::blockdir,
+  $logdir   = $nginx::params::logdir,
+  $owner    = $nginx::params::owner,
+  $group    = $nginx::params::group,
+) inherits nginx::params {
+  
   include nginx::packages
-  #include nginx::config
   include nginx::services
-  
-  case $::os['family'] {
-    'redhat' : {
-      $docroot  = '/var/www'
-      $confdir  = '/etc/nginx'
-      $blockdir = '/etc/nginx/conf.d'
-      $logdir   = '/var/log/nginx'
-      $owner    = 'root'
-      $group    = 'root'
-    }
-    default : { fail("Unsupported ${module_name} for this ${::os['family']}!") }
-  }
-  
-  $user = $::os['family'] ? {
-    'redhat' => 'nginx',
-    default  => 'nginx',
-  }
   
   File {
     ensure => file,
