@@ -1,6 +1,10 @@
 class users::admins {
-  $users = [ 'alice', 'chen', 'jose' ]
+  $users = [ 'chen', 'jose' ]
   
   users::managed_user { $users: }
+  
+  users::managed_user { 'alice':
+    group => 'admins',
+  }
   
 }
