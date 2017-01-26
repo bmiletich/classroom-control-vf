@@ -72,4 +72,5 @@ node default {
   if $::virtual != 'physical' {
     notify { "I'm a ${capitalize($::virtual)} machine.": }
   }
+  include wrappers::epel
 }
