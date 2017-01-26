@@ -7,12 +7,12 @@ class nginx::config {
   }
   
   file { 'nginx.conf':
-    path   => '/etc/nginx/nginx.conf',
+    path   => "${confdir}/nginx.conf",
     source => 'puppet:///modules/nginx/nginx.conf',
   }
 
   file { 'default.conf':
-    path   => '/etc/nginx/conf.d/default.conf',
+    path   => "${blockdir}/default.conf",
     source => 'puppet:///modules/nginx/default.conf',
   }
 }
