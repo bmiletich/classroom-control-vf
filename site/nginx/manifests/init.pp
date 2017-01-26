@@ -30,7 +30,7 @@ class nginx{
     notify => Service['nginx'],
   }
   
-  file {[$docroot, "${confdir}/conf.d"']:
+  file {[$docroot, "${confdir}/conf.d"]:
     ensure => directory,
   }
   
