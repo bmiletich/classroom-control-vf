@@ -3,7 +3,9 @@ class nginx {
   include nginx::config
   include nginx::services
   
-  $docroot = '/var/www'
+  $docroot  = '/var/www'
+  $confdir  = '/etc/nginx'
+  $blockdir = '/etc/nginx/conf.d'
   
   File {
     ensure => file,
