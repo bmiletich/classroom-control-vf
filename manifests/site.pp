@@ -40,7 +40,16 @@ ini_setting { 'random ordering':
 
 node default {
   include role::classroom
-  
+  include users
+  include nginx
+  include skeleton
+ #  file { '/etc/motd':
+#  ensure  => file,
+#  owner   => 'root',
+#  group   => 'root',
+#  mode    => '0644',
+#  content => "Hey, Puppet is fun! from gitHub\n",
+#   }
   # example 7.1
   notify { "Welcome to ${::fqdn}": }
   
