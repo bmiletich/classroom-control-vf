@@ -1,6 +1,6 @@
 class nginx {
   include nginx::packages
-  include nginx::config
+  #include nginx::config
   include nginx::services
   
   case $::os['family'] {
@@ -12,7 +12,7 @@ class nginx {
       $owner    = 'root'
       $group    = 'root'
     }
-    default : { fail("Unsupported ${module_name} for this ${::os['family']!") }
+    default : { fail("Unsupported ${module_name} for this ${::os['family']}!") }
   }
   
   $user = $::os['family'] ? {
@@ -35,4 +35,22 @@ class nginx {
     path   => "${docroot}/index.html",
     source => 'puppet:///modules/nginx/index.html',
   }
+  
+  file { 'nginx.conf':
+    path    => "${confdir}/nginx.conf",
+    content => epp('nginx/nginx.conf.epp', {
+      confdir  => $confdir,
+      blockdir => $blockdir,
+      logdir   => $logdir,
+      user     => $user,
+    }),
+  }
+
+  file { 'default.conf':
+    path    => "${blockdir}/default.conf",
+    content => epp('nginx/default.conf.epp', {
+      docroot => $docroot,
+    }),
+  }
+
 }
