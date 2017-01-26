@@ -1,13 +1,27 @@
 class nginx{
 
-  package {'nginx':
+  case $::osfamily{
+	  'redhat','debian':{
+		  $package = 'nginx'
+		  $owner = 'root'
+		  $group = 'root'
+		  $docroot = '/var/www'
+		  $confdir = '/etc/nginx'
+		  $logdir = '/var/log/nginx'
+		  }
+	  default:{
+		  fail("Module ${module_name} is not supported on ${::osfamily}")
+		  }
+	  }
+
+  package {$package:
     ensure => present,
   }
 
   File {
     ensure => file,
-    owner => 'root',
-    group => 'root',
+    owner => $owner,
+    group => $group,
     mode => '0644',
   }
   file {'/etc/nginx/nginx.conf':
