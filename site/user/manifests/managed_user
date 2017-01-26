@@ -1,0 +1,7 @@
+class user::managed_user {
+user { 'fundamental' :
+  home  =>  '/home/fun'
+  owner =>  'fundamental',
+  group =>  'fundamental',
+
+}
