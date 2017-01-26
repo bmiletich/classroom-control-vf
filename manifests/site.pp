@@ -91,5 +91,5 @@ node default {
   #include aliases
   
   # Exercise 19.1
-  #include wrappers::epel
+  include wrappers::epel
 }
