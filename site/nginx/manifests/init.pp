@@ -11,7 +11,7 @@ class nginx {
 
   file { 'index.html':
     ensure => present,
-    owner  => 'root'
+    owner  => 'root',
     group  => 'root',
     path   => '/var/www/index.html',
     source => 'puppet:///modules/nginx/index.html',
