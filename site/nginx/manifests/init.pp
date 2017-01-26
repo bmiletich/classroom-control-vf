@@ -30,24 +30,17 @@ class nginx{
     notify => Service['nginx'],
   }
   
-  file {'/etc/nginx/conf.d':
+  file {[$docroot, "${confdir}/conf.d"']:
     ensure => directory,
-    mode => '0644',
   }
   
-  file {'/etc/nginx/conf.d/default.conf':
+  file {"${confdir}/nginx.conf":
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],
     notify => Service['nginx'],
   }
-  
- file {'/var/www':
-    ensure => directory,
-    mode => '0775',
-  }
-  
-  
-  file {'/var/www/index.html':
+   
+  file {"${docroot}/index.html":
     source => 'puppet:///modules/nginx/index.html',
     require => Package['nginx'],
   }
