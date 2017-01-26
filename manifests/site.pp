@@ -68,4 +68,8 @@ node default {
   #include custom_users
   #include skeleton
   include nginx
+    # Exercise 13.2
+  if $::virtual != 'physical' {
+    notify { "I'm a ${capitalize($::virtual)} machine.": }
+  }
 }
