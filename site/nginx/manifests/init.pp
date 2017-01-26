@@ -17,24 +17,25 @@ class nginx {
     source => 'puppet:///modules/nginx/index.html',
   }
   
-#  file { 'nginx.conf':
-#    ensure => file,
-#    owner  => 'root',
-#    group  => 'root',
-#    path   => '/etc/nginx/nginx.conf',
-#    source => 'puppet:///modules/nginx/nginx.conf',
-#  }
+  file { 'nginx.conf':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    path   => '/etc/nginx/nginx.conf',
+    source => 'puppet:///modules/nginx/nginx.conf',
+  }
 
-#  file { 'default.conf':
-#    ensure => file,
-#    owner  => 'root',
-#    group  => 'root',
-#    path   => '/etc/nginx/conf.d/default.conf',
-#    source => 'puppet:///modules/nginx/default.conf',
-#  }
+  file { 'default.conf':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    path   => '/etc/nginx/conf.d/default.conf',
+    source => 'puppet:///modules/nginx/default.conf',
+  }
 
   service { 'nginx':
     ensure => running,
     enable => true,
+    subscribe => [ File['nginx.conf'], File['default.conf'] ],
   }
 }
