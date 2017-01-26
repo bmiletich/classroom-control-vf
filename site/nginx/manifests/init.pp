@@ -1,13 +1,19 @@
-class nginx {
-  package { 'nginx':
-    ensure => present,
-  }
- $docroot = '/var/www'
+class nginx (
+  $docroot  = $nginx::params::docroot,
+  $confdir  = $nginx::params::confdir,
+  $blockdir = $nginx::params::blockdir,
+  $logdir   = $nginx::params::logdir,
+  $owner    = $nginx::params::owner,
+  $group    = $nginx::params::group,
+) inherits nginx::params {
+  
+  include nginx::packages
+  include nginx::services
   
   File {
     ensure => file,
-    owner  => 'root',
-    group  => 'root',
+    owner  => $owner,
+    group  => $group,
     mode   => '0664',
   }
   
@@ -20,8 +26,21 @@ class nginx {
     source => 'puppet:///modules/nginx/index.html',
   }
   
-  service { 'nginx':
-    ensure => running,
-    enable => true,
+  file { 'nginx.conf':
+    path    => "${confdir}/nginx.conf",
+    content => epp('nginx/nginx.conf.epp', {
+      confdir  => $confdir,
+      blockdir => $blockdir,
+      logdir   => $logdir,
+      user     => $user,
+    }),
   }
+
+  file { 'default.conf':
+    path    => "${blockdir}/default.conf",
+    content => epp('nginx/default.conf.epp', {
+      docroot => $docroot,
+    }),
+  }
+
 }
