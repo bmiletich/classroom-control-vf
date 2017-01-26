@@ -25,9 +25,15 @@ class nginx{
     mode => '0644',
   }
   file {"${confdir}/nginx.conf":
-    source => 'puppet:///modules/nginx/nginx.conf',
+    #source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
     notify => Service['nginx'],
+    content	=> epp('nginx/nginx.conf.epp', {
+	user => $user,
+	confdir => $confdir,
+	logdir => $logdir,
+	}
+),
   }
   
   file {[$docroot, "${confdir}/conf.d"]:
