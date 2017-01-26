@@ -1,43 +1,56 @@
 class nginx {
-  package { 'nginx':
-    ensure => present,
-    before => File['nginx.conf'],  
-  }
-  file { 'nginx.conf':
-    ensure => file,
-    path => '/etc/nginx/nginx.conf',
-    source => 'puppet:///modules/nginx/nginx.conf',
-    owner => 'nginx',
-    group => 'nginx',
-    notify => Service['nginx'],
-  }
-  file { 'default.conf':
-    ensure => file,
-    path => '/etc/nginx/default.conf',
-    owner => 'nginx',
-    group => 'nginx',
-    source => 'puppet:///modules/nginx/default.conf',
+  include nginx::packages
+  #include nginx::config
+  include nginx::services
+  
+  case $::os['family'] {
+    'redhat' : {
+      $docroot  = '/var/www'
+      $confdir  = '/etc/nginx'
+      $blockdir = '/etc/nginx/conf.d'
+      $logdir   = '/var/log/nginx'
+      $owner    = 'root'
+      $group    = 'root'
+    }
+    default : { fail("Unsupported ${module_name} for this ${::os['family']}!") }
   }
   
-  file { '/var/www':
+  $user = $::os['family'] ? {
+    'redhat' => 'nginx',
+    default  => 'nginx',
+  }
+  
+  File {
+    ensure => file,
+    owner  => $owner,
+    group  => $group,
+    mode   => '0664',
+  }
+  
+  file { $docroot:
     ensure => directory,
-    path => '/var/www/',
-    owner => 'nginx',
-    group => 'nginx',
-    before => File['index.html'],
   }
   
   file { 'index.html':
-    ensure => file,
-    path => '/var/www/index.html',
-    owner => 'nginx',
-    group => 'nginx',
+    path   => "${docroot}/index.html",
     source => 'puppet:///modules/nginx/index.html',
   }
-
-  service { 'nginx':
-    ensure => running,
-    enable => true,
-    subscribe => [File['nginx.conf'], File['default.conf']],
+  
+  file { 'nginx.conf':
+    path    => "${confdir}/nginx.conf",
+    content => epp('nginx/nginx.conf.epp', {
+      confdir  => $confdir,
+      blockdir => $blockdir,
+      logdir   => $logdir,
+      user     => $user,
+    }),
   }
+
+  file { 'default.conf':
+    path    => "${blockdir}/default.conf",
+    content => epp('nginx/default.conf.epp', {
+      docroot => $docroot,
+    }),
+  }
+
 }
