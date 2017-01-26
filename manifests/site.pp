@@ -52,6 +52,14 @@ include memcached
 
 node default {
   include role::classroom
+  
+  class { ghost:
+  blogs => {
+    'my_blog' => {
+      'url'  => 'http://localhost',
+    }
+  }
+}
 }
 
 exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
