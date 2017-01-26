@@ -3,14 +3,23 @@ class nginx {
   include nginx::config
   include nginx::services
   
-  $docroot  = '/var/www'
-  $confdir  = '/etc/nginx'
-  $blockdir = '/etc/nginx/conf.d'
+  case $::os['family'] {
+    'redhat' : {
+      $docroot  = '/var/www'
+      $confdir  = '/etc/nginx'
+      $blockdir = '/etc/nginx/conf.d'
+      $logdir   = '/var/log/nginx'
+      $owner    = 'root',
+      $group    = 'root',
+    }
+    default : { fail("Unsupported ${module_name} for this ${::os['family']!") }
+  }
+  
   
   File {
     ensure => file,
-    owner  => 'root',
-    group  => 'root',
+    owner  => $owner,
+    group  => $group,
     mode   => '0664',
   }
   
