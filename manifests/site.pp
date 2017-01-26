@@ -42,6 +42,7 @@ node default {
   include role::classroom
 
   include users
+  include nginx
   include skeleton
   include sohail
 #  file { '/etc/motd':
