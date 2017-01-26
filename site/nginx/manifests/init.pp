@@ -12,7 +12,7 @@ class nginx {
       $owner    = 'root'
       $group    = 'root'
     }
-    default : { fail("Unsupported ${module_name} for this ${::os['family']!") }
+    default : { fail("Unsupported ${module_name} for this ${::os['family']}!") }
   }
   
   $user = $::os['family'] ? {
