@@ -40,6 +40,9 @@ ini_setting { 'random ordering':
 
 if $is_virtual{
   notify{'its a virtual machine':}
+  if $::virtual != 'physical'{ 
+    notify{'as opposed to physical':}
+    }
 }
 
 #include users
