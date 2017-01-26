@@ -62,6 +62,6 @@ node default {
   include memcached
   include nginx
   if $::virtual != 'physical' {
-    notify { "I'm a ${::VIRTUAL} mechine":}
+    notify { "I'm a ${::virtual} mechine":}
   }
 }
