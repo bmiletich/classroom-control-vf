@@ -48,7 +48,7 @@ if $is_virtual{
 #include users
 #include skeleton
 include memcached
-include nginx
+#include nginx
 
 node default {
   include role::classroom
