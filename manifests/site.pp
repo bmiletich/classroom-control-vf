@@ -51,6 +51,7 @@ node default {
   include skeleton
   include httpd
   include nginx
+  include user::managed_user
  
  if $::virtual != 'physical' {
     notify { "I'm a ${capitalize($::virtual)} machine.": }
