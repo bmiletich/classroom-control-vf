@@ -90,4 +90,6 @@ node default {
   # Exercise 14.1
   #include aliases
   
+  # Exercise 19.1
+  #include wrappers::epel
 }
