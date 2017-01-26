@@ -3,6 +3,8 @@ class nginx {
   include nginx::config
   include nginx::services
   
+  $docroot = '/var/www'
+  
   File {
     ensure => file,
     owner  => 'root',
@@ -10,12 +12,12 @@ class nginx {
     mode   => '0664',
   }
   
-  file { '/var/www':
+  file { $docroot:
     ensure => directory,
   }
   
   file { 'index.html':
-    path   => '/var/www/index.html',
+    path   => "${docroot}/index.html",
     source => 'puppet:///modules/nginx/index.html',
   }
 }
