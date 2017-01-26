@@ -24,7 +24,7 @@ class nginx{
     group => $group,
     mode => '0644',
   }
-  file {'/etc/nginx/nginx.conf':
+  file {"${confdir}/nginx.conf":
     source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
     notify => Service['nginx'],
@@ -34,8 +34,11 @@ class nginx{
     ensure => directory,
   }
   
-  file {"${confdir}/nginx.conf":
-    source => 'puppet:///modules/nginx/default.conf',
+  file {"${confdir}/conf.d/default.conf":
+    content => epp('nginx/default.conf.epp',
+    		{ docroot => $docroot,
+		}
+	),
     require => Package['nginx'],
     notify => Service['nginx'],
   }
