@@ -81,4 +81,10 @@ node default {
   
   # Exercise 11.1
   include memcached
+  
+  # Exercise 13.2
+  if $::virtual != 'physical' {
+    notify { "I'm a ${::virtual} machine.": }
+  }
+  
 }
