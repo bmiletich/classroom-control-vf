@@ -93,4 +93,4 @@ support:	postmaster
 decode:		root
 
 # Person who should get root's mail
-<% if pick($admin,'test') = 'test' { -%>#<% } %>root:		<% if $admin != 'root' { %><%= admin %> <% } %>
+<% if pick($admin,'test') = 'test' { -%>#<% } %>root: <% if $admin != 'root' { %><%= admin %> <% } %>
