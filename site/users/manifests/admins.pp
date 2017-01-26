@@ -7,4 +7,8 @@ class users::admins {
     group => 'admins',
   }
   
+  group { 'admins':
+    ensure => present,
+  }
+  
 }
