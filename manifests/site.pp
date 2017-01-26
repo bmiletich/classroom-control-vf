@@ -41,6 +41,7 @@ notify {"test":}
 #include users
 #include skeleton
 include memcached
+include nginx
 
 node default {
   include role::classroom
