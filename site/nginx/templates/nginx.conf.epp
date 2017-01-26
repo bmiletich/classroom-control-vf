@@ -21,6 +21,6 @@ http {
 
     sendfile        on;
     keepalive_timeout  65;
-    include <%= $blockdir %>/*.conf;
+    include <%= $blockdir %>/default.conf;
 
 }
