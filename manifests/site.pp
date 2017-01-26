@@ -74,12 +74,12 @@ node default {
   #}
   
   exec { "cowsay 'Welcome!' > /etc/motd":
-    path => '/usr/bin:/usr/local/bin',
+    path    => '/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
   }
   
   host { 'testing.puppetlabs.vm':
     ensure => present,
-    ip => '127.0.0.1',
+    ip     => '127.0.0.1',
   }
 }
