@@ -18,10 +18,10 @@ class nginx{
     ensure => present,
   }
 
-$user = $::osfamily?{
-	'redhat' => 'nginx',
-	'debian' => 'www-data',
-}
+	$user = $::osfamily?{
+		'redhat' => 'nginx',
+		'debian' => 'www-data',
+	}
 
   File {
     ensure => file,
