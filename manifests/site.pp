@@ -39,6 +39,21 @@ ini_setting { 'random ordering':
 # specified in the console for that node.
 
 node default {
+  if $::virtual != 'physical' {
+    $vmname = capitalize($::virtual)
+    notify { "This is a ${vmname} virtual machine.": }
+  }
+  
+  case $::osfamily {
+  'redhat': {
+    $message = 'I am a $::osfamily instance of Linux!'
+    notify { '$message' }
+  }
+  default: {
+      fail("Operating system family ${::osfamily} is not supported.")
+  }
+}
+  
   #include role::classroom
   include users
   include skeleton
