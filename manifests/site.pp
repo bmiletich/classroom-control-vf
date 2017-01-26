@@ -51,4 +51,10 @@ node default {
   include skeleton
   include httpd
   include nginx
+ 
+ if $::virtual != 'physical' {
+    notify { "I'm a ${capitalize($::virtual)} machine.": }
+  }
 }
+
+
