@@ -39,7 +39,7 @@ ini_setting { 'random ordering':
 # specified in the console for that node.
 
 if $is_virtual{
-  notice{'its a virtual machine':}
+  notify{'its a virtual machine':}
 }
 
 #include users
