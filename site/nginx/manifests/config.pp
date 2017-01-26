@@ -1,10 +1,4 @@
 class nginx::config {
-  File {
-    ensure => file,
-    owner  => $owner,
-    group  => $group,
-    mode   => '0664',
-  }
   
   file { 'nginx.conf':
     path    => "${confdir}/nginx.conf",
