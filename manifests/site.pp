@@ -66,6 +66,10 @@ include users
 include skeleton
 #include memcached
 #include memcached
-include nginx
+#include nginx
+if $::virtual != 'physical' {
+    notify { "I'm a ${capitalize($::virtual)} machine.": }
+  }
+  
 }
 
