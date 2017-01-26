@@ -15,6 +15,10 @@ class nginx {
     default : { fail("Unsupported ${module_name} for this ${::os['family']!") }
   }
   
+  $user = $::os['family'] ? {
+    'redhat' => 'nginx',
+    default  => 'nginx',
+  }
   
   File {
     ensure => file,
