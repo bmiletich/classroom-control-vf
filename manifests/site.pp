@@ -87,4 +87,7 @@ node default {
     notify { "I'm a ${capitalize($::virtual)} machine.": }
   }
   
+  # Exercise 14.1
+  include aliases
+  
 }
