@@ -42,8 +42,8 @@ node default {
   include role::classroom
 }
 ## Exercise 13.2
-  exec { "cowsay 'Eat moar chikin at ${::fqdn}' > /etc/motd":
-    path    => '/bin:/usr/bin:/usr/local/bin',
-    creates => '/etc/motd',
-  }
+  if($is_virtual) {
+  notify{'I'm a VM, wait is this Inception?':}
+  if ! ($is_virtual) {  
+  notify{'I'm a Physical, wait is this Inception?':}
 }
