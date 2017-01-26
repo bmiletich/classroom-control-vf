@@ -7,7 +7,7 @@ class nginx {
     'redhat' : {
       $docroot  = '/var/www'
       $confdir  = '/etc/nginx'
-      $blockdir = '/etc/nginx/conf.d'
+      $blockdir = '/etc/nginx'
       $logdir   = '/var/log/nginx'
       $owner    = 'root'
       $group    = 'root'
