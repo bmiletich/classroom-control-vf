@@ -84,7 +84,7 @@ node default {
   
   # Exercise 13.2
   if $::virtual != 'physical' {
-    notify { "I'm a ${::virtual} machine.": }
+    notify { "I'm a ${capitalize($::virtual)} machine.": }
   }
   
 }
