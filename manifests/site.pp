@@ -49,7 +49,7 @@ node default {
 #  group   => 'root',
 #  mode    => '0644',
 #  content => "Hey, Puppet is fun! from gitHub\n",
-#   }
+  }
   # example 7.1
   notify { "Welcome to ${::fqdn}": }
   
