@@ -9,10 +9,10 @@ mod 'vcsrepo',
 mod 'stahnma/epel', '1.2.2'
 
 #install linux ulimits
-mod 'puppetlabs/limits', '0.1.0'
+#mod 'puppetlabs/limits', '0.1.0'
 
 #installs redis
-mod 'arioch/redis', '1.2.4'
+#mod 'arioch/redis', '1.2.4'
 
 #sets sysctls
-mod 'thias/sysctl', '1.0.6'
+#mod 'thias/sysctl', '1.0.6'
