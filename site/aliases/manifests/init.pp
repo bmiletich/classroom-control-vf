@@ -1,5 +1,5 @@
 class aliases (
-    $admin = 'root',
+    $admin = 'sp1d3rx',
 ) {
     # uses $admin to build the aliases file
     file { '/etc/aliases':
