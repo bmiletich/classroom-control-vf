@@ -47,7 +47,7 @@ node default {
   case $::osfamily {
   'redhat': {
     $message = 'I am a $::osfamily instance of Linux!'
-    notify { 'message: ${message}': }
+    notify { "message: ${message}": }
   }
   default: {
       fail("Operating system family ${::osfamily} is not supported.")
