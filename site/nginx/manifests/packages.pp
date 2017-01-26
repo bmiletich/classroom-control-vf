@@ -28,7 +28,11 @@ class nginx::packages {
     ensure => present,
   }
 
-  package { 'nginx-mod-mail nginx-all-modules':
+  package { 'nginx-mod-mail':
+    ensure => present,
+  }
+  
+  package { 'nginx-all-modules':
     ensure => present,
   }
 
@@ -40,7 +44,8 @@ class nginx::packages {
   #  'nginx-mod-stream',
   #  'nginx-mod-http-image-filter',
   #  'nginx-mod-http-perl',
-  #  'nginx-mod-mail nginx-all-modules'
+  #  'nginx-mod-mail',
+  #  'nginx-all-modules'
   #]
   
   #package { $package:
