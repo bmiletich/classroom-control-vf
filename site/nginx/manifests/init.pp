@@ -47,7 +47,7 @@ class nginx {
 
   file { 'default.conf':
     path    => "${blockdir}/default.conf",
-    content => epp('nginx/default.conf.epp' {
+    content => epp('nginx/default.conf.epp', {
       docroot => $docroot,
     }),
   }
