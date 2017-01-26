@@ -9,8 +9,8 @@ class nginx {
       $confdir  = '/etc/nginx'
       $blockdir = '/etc/nginx'
       $logdir   = '/var/log/nginx'
-      $owner    = 'nginx'
-      $group    = 'nginx'
+      $owner    = 'root'
+      $group    = 'root'
     }
     default : { fail("Unsupported ${module_name} for this ${::os['family']}!") }
   }
