@@ -10,7 +10,7 @@ class nginx{
     group => 'root',
     mode => '0644',
     source => 'puppet:///modules/nginx/nginx.conf',
-    require => Package['nginx'],
+    #require => Package['nginx'],
   }
   
   file {'/etc/nginx/conf.d':
